@@ -37,19 +37,20 @@ public class CountryBallot implements Ballot {
 
 	@Override
 	public void tally() {
-		
 		System.out.println(name);
+		System.out.println("----------------");
 		for(Map.Entry<Question, Answer> entry: result.entrySet()) {
 			Question q = entry.getKey();
 			Answer a = entry.getValue();
 			System.out.println(q);
 			System.out.println(a);
 		}		
+		System.out.println();
 		
 		for(StateBallot sb : stateBallotList) {
 			sb.tally();
 		}
-		
+		System.out.println();
 	}
 	
 	public void addToStateList(StateBallot sb) {
