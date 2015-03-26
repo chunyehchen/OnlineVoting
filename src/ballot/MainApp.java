@@ -38,7 +38,12 @@ public class MainApp {
 		ballotNC.cast(q3, AnswerType.YES);
 		ballotNC.cast(q3, AnswerType.NO);
 		
+		ballotColumbia.cast(q3, AnswerType.YES);
+		ballotCharleston.cast(q2, AnswerType.NO);
+		
 		ballotSC.cast(q3, AnswerType.NO);
+		
+		ballotUSA.cast(q1, AnswerType.NO);
 		
 		ballotUSA.tally();
 	}
