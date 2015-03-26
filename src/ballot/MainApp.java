@@ -17,7 +17,7 @@ public class MainApp {
 		nc.addToCityList(raleigh);
 		nc.addToCityList(chapel_hill);
 		
-		StateBallot sc = (StateBallot) bf.getBallot(BallotType.STATE_BALLOT, "Sourth Carolina");
+		StateBallot sc = (StateBallot) bf.getBallot(BallotType.STATE_BALLOT, "South Carolina");
 		sc.addToCityList(columbia);
 		sc.addToCityList(charleston);
 		
