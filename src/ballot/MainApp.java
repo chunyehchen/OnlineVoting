@@ -6,40 +6,40 @@ public class MainApp {
 		Question q2 = new Question("Do you support nuclear power?");
 		Question q3 = new Question("Do you support gay marriage?");
 		
-		BallotFactory bf = BallotFactory.getInstance();
+		BallotFactory ballotFactory = BallotFactory.getInstance();
 		
-		CityBallot raleigh = (CityBallot) bf.getBallot(BallotType.CITY_BALLOT, "Raleigh");
-		CityBallot chapel_hill = (CityBallot) bf.getBallot(BallotType.CITY_BALLOT, "Chapel Hill");
-		CityBallot columbia = (CityBallot) bf.getBallot(BallotType.CITY_BALLOT, "Columbia");
-		CityBallot charleston = (CityBallot) bf.getBallot(BallotType.CITY_BALLOT, "Charleston");
+		CityBallot ballotRaleigh = (CityBallot) ballotFactory.getBallot(BallotType.CITY_BALLOT, "Raleigh");
+		CityBallot ballotChapelHill = (CityBallot) ballotFactory.getBallot(BallotType.CITY_BALLOT, "Chapel Hill");
+		CityBallot ballotColumbia = (CityBallot) ballotFactory.getBallot(BallotType.CITY_BALLOT, "Columbia");
+		CityBallot ballotCharleston = (CityBallot) ballotFactory.getBallot(BallotType.CITY_BALLOT, "Charleston");
 		
-		StateBallot nc = (StateBallot) bf.getBallot(BallotType.STATE_BALLOT, "North Carolina");
-		nc.addToCityList(raleigh);
-		nc.addToCityList(chapel_hill);
+		StateBallot ballotNC = (StateBallot) ballotFactory.getBallot(BallotType.STATE_BALLOT, "North Carolina");
+		ballotNC.addToCityList(ballotRaleigh);
+		ballotNC.addToCityList(ballotChapelHill);
 		
-		StateBallot sc = (StateBallot) bf.getBallot(BallotType.STATE_BALLOT, "South Carolina");
-		sc.addToCityList(columbia);
-		sc.addToCityList(charleston);
+		StateBallot ballotSC = (StateBallot) ballotFactory.getBallot(BallotType.STATE_BALLOT, "South Carolina");
+		ballotSC.addToCityList(ballotColumbia);
+		ballotSC.addToCityList(ballotCharleston);
 		
-		CountryBallot usa = (CountryBallot) bf.getBallot(BallotType.COUNTRY_BALLOT, "USA");
-		usa.addToStateList(nc);
-		usa.addToStateList(sc);
+		CountryBallot ballotUSA = (CountryBallot) ballotFactory.getBallot(BallotType.COUNTRY_BALLOT, "USA");
+		ballotUSA.addToStateList(ballotNC);
+		ballotUSA.addToStateList(ballotSC);
 		
-		raleigh.cast(q1, "Yes");
-		raleigh.cast(q1, "Yes");
-		raleigh.cast(q2, "No");
-		raleigh.cast(q2, "No");
-		raleigh.cast(q2, "Yes");
+		ballotRaleigh.cast(q1, AnswerType.YES);
+		ballotRaleigh.cast(q1, AnswerType.YES);
+		ballotRaleigh.cast(q2, AnswerType.NO);
+		ballotRaleigh.cast(q2, AnswerType.NO);
+		ballotRaleigh.cast(q2, AnswerType.YES);
 		
-		chapel_hill.cast(q1, "No");
-		chapel_hill.cast(q1, "Yes");
-		chapel_hill.cast(q2, "Yes");
+		ballotChapelHill.cast(q1, AnswerType.NO);
+		ballotChapelHill.cast(q1, AnswerType.YES);
+		ballotChapelHill.cast(q2, AnswerType.YES);
 		
-		nc.cast(q3, "Yes");
-		nc.cast(q3, "No");
+		ballotNC.cast(q3, AnswerType.YES);
+		ballotNC.cast(q3, AnswerType.NO);
 		
-		sc.cast(q3, "No");
+		ballotSC.cast(q3, AnswerType.NO);
 		
-		usa.tally();
+		ballotUSA.tally();
 	}
 }

@@ -18,7 +18,7 @@ public class CountryBallot implements Ballot {
 	}
 	
 	@Override
-	public void cast(Question q, String ans) {
+	public void cast(Question q, AnswerType ans) {
 		Answer a = null;
 		if(result.containsKey(q)) {
 			a = result.get(q);			
@@ -26,9 +26,9 @@ public class CountryBallot implements Ballot {
 			a = new Answer();
 		}		
 		
-		if(ans.equals("Yes")) {
+		if(AnswerType.YES.equals(ans)) {
 			a.incrementYes();
-		} else if (ans.equals("No")) {
+		} else if (AnswerType.NO.equals(ans)) {
 			a.incrementNo();
 		}
 		
