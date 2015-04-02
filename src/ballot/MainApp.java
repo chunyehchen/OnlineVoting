@@ -1,5 +1,7 @@
 package ballot;
 
+import java.util.ArrayList;
+
 public class MainApp {
 	public static void main(String[] args) {
 		Question q1 = new Question("Do you support free bus?");
@@ -45,6 +47,20 @@ public class MainApp {
 		
 		ballotUSA.cast(q1, AnswerType.NO);
 		
-		ballotUSA.tally();
+		//ballotUSA.tally();
+		
+		Processor chain = Processor.setUpChain();
+		
+		ArrayList<Ballot> ballotList = new ArrayList<Ballot>();
+		ballotList.add(ballotRaleigh);
+		ballotList.add(ballotUSA);
+		ballotList.add(ballotNC);
+		
+		for(Ballot ballot: ballotList) {
+			chain.tally(ballot);
+			System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+		}
+		
 	}
+	
 }
