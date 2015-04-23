@@ -52,9 +52,8 @@ public class MainApp {
 		Processor chain = Processor.setUpChain();
 		
 		ArrayList<Ballot> ballotList = new ArrayList<Ballot>();
-		ballotList.add(ballotRaleigh);
 		ballotList.add(ballotUSA);
-		ballotList.add(ballotNC);
+
 		
 		for(Ballot ballot: ballotList) {
 			chain.tally(ballot);
